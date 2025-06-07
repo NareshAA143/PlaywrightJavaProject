@@ -1,5 +1,7 @@
 package com.qa.opencart.pages;
 
+import org.testng.Assert;
+
 import com.microsoft.playwright.Page;
 
 
@@ -16,6 +18,7 @@ public class HomePage {
 	private String Iphone="//div[@class='caption']//a[contains(text(),'iPhone')]";
 	private String cartBtn ="#button-cart";
 	private String cartsuccess=".alert.alert-success.alert-dismissible";
+	
 	//2.page constructor
 	public HomePage(Page page)
 	{
@@ -69,9 +72,11 @@ public class HomePage {
 		page.click(cartBtn);
 	}
 	
-	public boolean CartSuccess()
+	public void CartSuccess()
 	{
-		return page.isVisible(cartsuccess);
-		
+		String actualMessage =page.locator(cartsuccess).textContent().trim();
+	    Assert.assertTrue(actualMessage.contains("Success: You have added iPhone to your shopping cart!"), "Success message displayed");
+		String expectedMessage="Success: You have added iPhone to your shopping cart!";
+		Assert.assertEquals(actualMessage, expectedMessage,"not matched");
 	}
 }
