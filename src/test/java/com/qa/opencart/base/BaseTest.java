@@ -26,6 +26,7 @@ public class BaseTest {
 		
 	    page = pf.initBrowser(prop);
 		homePage = new HomePage(page);
+		loginPage= new LoginPage(page);
 	}
 
 	
