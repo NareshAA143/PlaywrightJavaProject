@@ -22,21 +22,21 @@ public class LoginPage {
 	
 	public String getLoginPageTitle()
 	{
-		return page.title();
+		return this.page.title();
 	}
 	
 	public boolean isForgotPwdLinkExist()
 	{
-		return page.isVisible(forgotPwdLink);
+		return this.page.isVisible(forgotPwdLink);
 	}
 	
 	public boolean doLogin(String appUserName, String appPassword)
 	{
 		System.out.println("App creds: " + appUserName + ":"+appPassword);
-		page.fill(emailId, appUserName);
-		page.fill(password, appPassword);
-		page.click(loginBtn);
-		if(page.isVisible(returningCustomer))
+		this.page.fill(emailId, appUserName);
+		this.page.fill(password, appPassword);
+		this.page.click(loginBtn);
+		if(this.page.isVisible(returningCustomer))
 		{
 			System.out.println("User is logged in successfully....");
 			return true;

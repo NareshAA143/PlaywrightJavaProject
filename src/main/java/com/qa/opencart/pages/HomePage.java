@@ -28,7 +28,7 @@ public class HomePage {
 	//3.page actions/methods
 	public String getHomePageTitle()
 	{
-		String title=  page.title();
+		String title=  this.page.title();
 		System.out.println("page title: "+title);
 		return title;
 		
@@ -36,7 +36,7 @@ public class HomePage {
 	
 	public String getHomePageURL()
 	{
-		String url= page.url();
+		String url= this.page.url();
 		System.out.println("page title: "+url);
 		return url;
 		
@@ -44,37 +44,37 @@ public class HomePage {
 	
 	public String doSearch(String productName)
 	{
-	    page.fill(search, productName);
-	    page.click(searchIcon);
-	    String header= page.textContent(searchPageHeader);
+	    this.page.fill(search, productName);
+	    this.page.click(searchIcon);
+	    String header= this.page.textContent(searchPageHeader);
 	    System.out.println("search header:"+header);
 	    return header;
 	}
 	
 	public LoginPage navigateToLoginPage()
 	{
-		page.click(myAccountLink);
-		page.click(loginlink);
+		this.page.click(myAccountLink);
+		this.page.click(loginlink);
 		return new LoginPage(page);
 	}
 	
 	public void phoneClick()
 	{
-		page.click(phones);
+		this.page.click(phones);
 	}
 	
 	public void IphoneClick()
 	{
-		page.click(Iphone);
+		this.page.click(Iphone);
 	}
 	public void CartClick()
 	{
-		page.click(cartBtn);
+		this.page.click(cartBtn);
 	}
 	
 	public void CartSuccess()
 	{
-		String actualMessage =page.locator(cartsuccess).textContent().trim();
+		String actualMessage =this.page.locator(cartsuccess).textContent().trim();
 	    Assert.assertTrue(actualMessage.contains("Success: You have added iPhone to your shopping cart!"), "Success message displayed");
 		String expectedMessage="Success: You have added iPhone to your shopping cart!";
 		Assert.assertEquals(actualMessage, expectedMessage,"not matched");
