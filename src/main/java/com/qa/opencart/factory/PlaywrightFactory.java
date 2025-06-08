@@ -55,19 +55,19 @@ public class PlaywrightFactory {
 		{
 		case "chromium":
 			//browser =playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));//ThreadLocal
+			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(true)));//ThreadLocal
 			break;
 		case "firefox":
 			//browser =playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false)));//ThreadLocal
+			tlBrowser.set(getPlaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(true)));//ThreadLocal
 			break;
 		case "safari":
 			//browser =playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
-			tlBrowser.set(getPlaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(false)));//ThreadLocal
+			tlBrowser.set(getPlaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(true)));//ThreadLocal
 			break;
 		case "chrome":
 			//browser =playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
-			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false)));//ThreadLocal
+			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true)));//ThreadLocal
 			break;
 		default:
 			System.out.println("please pass the right browser name.....");
